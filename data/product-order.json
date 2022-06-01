@@ -1,0 +1,66 @@
+[
+  {
+    "CustomerID": 30000,
+    "LastName": "McCoy",
+    "FirstName": "James",
+    "EmailAddress": "ames12@adventure-works.com",
+    "ProductID": 867,
+    "TotalOrderQuantity": 14
+  },
+  {
+    "CustomerID": 30000,
+    "LastName": "McCoy",
+    "FirstName": "James",
+    "EmailAddress": "ames12@adventure-works.com",
+    "ProductID": 868,
+    "TotalOrderQuantity": 11
+  },
+  {
+    "CustomerID": 30000,
+    "LastName": "McCoy",
+    "FirstName": "James",
+    "EmailAddress": "ames12@adventure-works.com",
+    "ProductID": 869,
+    "TotalOrderQuantity": 53
+  },
+  {
+    "CustomerID": 30000,
+    "LastName": "McCoy",
+    "FirstName": "James",
+    "EmailAddress": "ames12@adventure-works.com",
+    "ProductID": 894,
+    "TotalOrderQuantity": 18
+  },
+  {
+    "CustomerID": 30002,
+    "LastName": "McGuel",
+    "FirstName": "Alejandro",
+    "EmailAddress": "alejandro1@adventure-works.com",
+    "ProductID": 875,
+    "TotalOrderQuantity": 1
+  },
+  {
+    "CustomerID": 30004,
+    "LastName": "McLin",
+    "FirstName": "Nkenge",
+    "EmailAddress": "nkenge0@adventure-works.com",
+    "ProductID": 868,
+    "TotalOrderQuantity": 2
+  },
+  {
+    "CustomerID": 30005,
+    "LastName": "McPhearson",
+    "FirstName": "Nancy",
+    "EmailAddress": "nancy3@adventure-works.com",
+    "ProductID": 889,
+    "TotalOrderQuantity": 1
+  },
+  {
+    "CustomerID": 30005,
+    "LastName": "McPhearson",
+    "FirstName": "Nancy",
+    "EmailAddress": "nancy3@adventure-works.com",
+    "ProductID": 892,
+    "TotalOrderQuantity": 2
+  }
+]
