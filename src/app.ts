@@ -1,32 +1,21 @@
 import { connectDB } from "./connectDB";
 import { ProductOrder } from "./schema/ProductOrder_Schema";
 import ProductsOrderData from "../data/product-order.json";
-import { connection } from "mongoose";
 
-const function1 = async () => {
+const connectToDB = async () => {
   await connectDB();
 };
 
-function1();
-
-// ProductOrder.insertMany(ProductsOrderData)
-//   .then((customers) => {
-//     console.log("Customers Added: ", customers);
-//   })
-//   .catch((e) => console.log(e));
-
 function insertingFunctions() {
-  return new Promise((resolve) => {
-    ProductOrder.insertMany(ProductsOrderData);
-    //   .then((customers) => {
-    //     console.log("Customers Added: ", customers);
-    //   })
-    //   .catch((e) => console.log(e));
+  return new Promise((resolve, reject) => {
+    ProductOrder.insertMany(ProductsOrderData)
+      .then((result) => resolve(result))
+      .catch((err) => reject(err));
   });
 }
 
 function aggregatingFunctions() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     ProductOrder.aggregate([
       {
         $match: {
@@ -35,55 +24,27 @@ function aggregatingFunctions() {
       },
       {
         $group: {
-          _id: 1,
+          _id: "$ProductID",
           totalQuantity: {
             $sum: "$TotalOrderQuantity",
           },
         },
       },
-    ]);
-    //   .then((result) => {
-    //     console.log("Successfully aggregated");
-    //     console.log(result);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+    ])
+      .then((result) => resolve(result))
+      .catch((err) => reject(err));
   });
 }
 
-// console.log("Done with the insertion");
-
-// ProductOrder.aggregate([
-//   {
-//     $match: {
-//       ProductID: 868,
-//     },
-//   },
-//   {
-//     $group: {
-//       _id: 1,
-//       totalQuantity: {
-//         $sum: "$TotalOrderQuantity",
-//       },
-//     },
-//   },
-// ])
-//   .then((result) => {
-//     console.log("Successfully aggregated");
-//     console.log(result);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
 async function asyncCall() {
+  await connectToDB();
   console.log("Inserting Values!!");
-  const result = await insertingFunctions();
+  const result1 = await insertingFunctions();
   console.log("Done inserting");
-  console.log(result);
+  // console.log(result1);
+  const result2 = await aggregatingFunctions();
+  console.log("Aggregating values");
+  console.log(result2);
 }
 
 asyncCall();
-
-// connection.close();
